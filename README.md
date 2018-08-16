@@ -1,5 +1,5 @@
 SWIFTLY
--------
+=======
 
 Swiftly is a utility tool for syncing a directory, namely a static website, into a bucket in OpenStack Swift.
 
@@ -14,7 +14,7 @@ Swiftly includes the following features:
 - Syncs multiple files at once (check the `--concurrent` flag for details).
 
 BUILD
-=====
+-----
 
 **Local Install**
 ```
@@ -33,7 +33,7 @@ Requires the `gox` package which is available here: https://github.com/mitchellh
 ```
 
 USAGE
-=====
+-----
 
 **View Help**
 ```
