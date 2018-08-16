@@ -10,7 +10,7 @@ Swiftly includes the following features:
 - Remove files from the swift bucket if no longer present in the directory being synced.
 - Replace existing files if they have changed.
 - Set the `web-index` and `web-error` settings so files can be served without extensions.
-- Make the container being synced to public so a website can be served from it.
+- Make the bucket being synced to public so a website can be served from it.
 - Syncs multiple files at once (check the `--concurrent` flag for details).
 
 BUILD
