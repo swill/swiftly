@@ -122,7 +122,7 @@ func main() {
 	// walk the file system and pull out the important info (because 'Walk' is a blocking function)
 	dirs := make([]*Obj, 0)
 	objs := make([]*Obj, 0)
-	pre_path := "" //strings.Trim(*prefix, string(os.PathSeparator)) // object pre path
+	pre_path := ""
 	pre_path_parts := strings.Split(pre_path, string(os.PathSeparator))
 	pre_dirs := ""
 	// loop through the path parts to build all sub folder objects as well
