@@ -33,6 +33,13 @@ var (
 func main() {
 	flag.Parse()
 
+	// verify dir has been passed
+	if *dir == "" {
+		fmt.Println("\nERROR: 'dir' is required\n")
+		flag.Usage()
+		os.Exit(2)
+	}
+
 	// verify and parse swift parameters
 	if *identity == "" || *password == "" {
 		fmt.Println("\nERROR: 'identity' and 'password' are required\n")
