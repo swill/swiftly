@@ -24,11 +24,13 @@ var (
 	conn        swift.Connection
 	dir         = flag.String("dir", "", "The directory which should be synced.")
 	bucket      = flag.String("bucket", "", "The bucket name to upload to.")
-	endpoint    = flag.String("endpoint", "https://auth.cloud.ca/v2.0", "The Cloud.ca object storage public url")
+	endpoint    = flag.String("endpoint", "https://auth.cloud.ca/v3", "The Cloud.ca object storage public url")
 	exclude     = flag.String("exclude", "", "A comma separated list of files or directories to exclude from upload.")
 	username    = flag.String("username", "", "Your Cloud.ca object storage User name")
 	projectname = flag.String("projectname", "", "Your Cloud.ca object storage Project name")
 	password    = flag.String("password", "", "Your Cloud.ca object storage password")
+	domain      = flag.String("domain", "default", "Your Cloud.ca object storage Domain ID")
+	authversion = flag.Int("authversion", 3, "Your Cloud.ca object storage Auth Version")
 	concurrent  = flag.Int("concurrent", 4, "The number of files to be uploaded concurrently (reduce if 'too many files open' errors occur)")
 )
 
@@ -59,10 +61,12 @@ func main() {
 	// upload contents of `absDir`
 	// make a swift connection
 	conn = swift.Connection{
-		UserName: *username,
-		ApiKey:   *password,
-		AuthUrl:  *endpoint,
-		Tenant:   *projectname,
+		UserName:    *username,
+		ApiKey:      *password,
+		AuthUrl:     *endpoint,
+		Tenant:      *projectname,
+		Domain:      *domain,
+		AuthVersion: *authversion,
 	}
 
 	// authenticate swift user
