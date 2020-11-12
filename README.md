@@ -38,10 +38,29 @@ USAGE
 **View Help**
 ```
 swiftly -h
+
+Usage of swiftly:
+  -bucket string
+    	The bucket name to upload to.
+  -concurrent int
+    	The number of files to be uploaded concurrently (reduce if 'too many files open' errors occur) (default 4)
+  -dir string
+    	The directory which should be synced.
+  -endpoint string
+    	The Cloud.ca object storage public url (default "https://auth.cloud.ca/v2.0")
+  -exclude string
+    	A comma separated list of files or directories to exclude from upload.
+  -password string
+    	Your Cloud.ca object storage password
+  -projectname string
+    	Your Cloud.ca object storage Project name
+  -username string
+    	Your Cloud.ca object storage User name
+
 ```
 
 **Usage Example**
 ```
-swiftly -dir=<public_dir> -identity=<tenant>:<user> -password=<password> -domain=<domain>
+swiftly -dir=<public_dir> -bucket=<swift_bucket> -username=<username> -projectname=<project_name> -password=<password>
 ```
-*Note: `-domain` will be the name of the swift bucket the contents of `-dir` will be synced to.*
+*Note: `-bucket` will be the name of the swift bucket the contents of `-dir` will be synced to.*
